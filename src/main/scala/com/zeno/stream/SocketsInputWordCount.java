@@ -19,9 +19,9 @@ public class SocketsInputWordCount {
         /*
          * 在 host 系统上执行 nc -lk 8888 ，然后输出文本到 进行单词统计。
          */
-        String host = "192.68.2.6";
+        String host = "192.168.2.6";
 
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment(3);
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment(1);
         final DataStreamSource<String> initStream = env.socketTextStream(host,8888);
 
         DataStream<String> words = initStream.flatMap(new FlatMapFunction<String, String>() {
